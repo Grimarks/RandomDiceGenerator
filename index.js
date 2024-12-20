@@ -3,6 +3,14 @@ function rollDice() {
     const DiceResults = document.getElementById("DiceResults");
     const DiceImg = document.getElementById("DiceImg");
 
+    DiceResults.textContent = "";
+    DiceImg.innerHTML = "";
+
+    if (!numOfDices || numOfDices < 1) {
+        DiceResults.textContent = "Please enter a valid number of dice!";
+        return;
+    }
+
     const values = [];
     const images = [];
 
@@ -12,6 +20,6 @@ function rollDice() {
         images.push(`<img src="Dice_Images/${value}.png" alt="Dice ${value}">`);
     }
 
-    DiceResults.textContent = `Dice: ${values.join(', ')}`;
-    DiceImg.innerHTML = images.join(' ');
+    DiceResults.textContent = `You rolled: ${values.join(", ")}`;
+    DiceImg.innerHTML = images.join("");
 }
